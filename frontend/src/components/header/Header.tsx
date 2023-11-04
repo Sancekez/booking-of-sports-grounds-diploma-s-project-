@@ -104,7 +104,7 @@ function Header() {
                         textDecoration: "none",
                      }}
                   >
-                     Quiz-app
+                     rent-gym
                   </Typography>
                </Link>
 
