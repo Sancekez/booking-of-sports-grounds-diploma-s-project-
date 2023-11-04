@@ -104,7 +104,7 @@ function Header() {
                         textDecoration: "none",
                      }}
                   >
-                     Alisher loh
+                     Alisher ne loh
                   </Typography>
                </Link>
 
