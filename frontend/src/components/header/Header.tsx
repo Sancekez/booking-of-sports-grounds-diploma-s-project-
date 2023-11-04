@@ -104,7 +104,7 @@ function Header() {
                         textDecoration: "none",
                      }}
                   >
-                     rent-gym
+                     Alisher ne loh
                   </Typography>
                </Link>
 
