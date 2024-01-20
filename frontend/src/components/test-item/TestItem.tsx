@@ -1,9 +1,12 @@
 import { Box, Paper, Typography } from "@mui/material";
 import { FC } from "react";
-import { Link } from "react-router-dom";
+import { useGetQuizByIdMutation } from "../../redux/api/userApi";
+import { useState } from "react";
 
 const TestItem: FC<IQuiz> = ({ questions, title, createdAt, _id }: IQuiz) => {
    const date = new Date(createdAt);
+
+   const [testData, setTestData] = useState(null);
 
    // Получить день, месяц и год
    const year = date.getFullYear();
@@ -14,10 +17,23 @@ const TestItem: FC<IQuiz> = ({ questions, title, createdAt, _id }: IQuiz) => {
    const hours = String(date.getHours()).padStart(2, "0");
    const minutes = String(date.getMinutes()).padStart(2, "0");
 
+   const [getQuizById] = useGetQuizByIdMutation();
+
+   const getInfo = async () => {
+      try {
+         const data = await getQuizById({ _id: _id });
+         if (data) {
+            setTestData(data);
+         }
+      } catch (error) {
+         console.error(error);
+      }
+      console.log("testData", testData);
+   };
    const formattedDate = `${hours}:${minutes} ${day}.${month}.${year}`;
 
    return (
-      <Link to={`/quiz:${_id}`}>
+      <Box onClick={getInfo}>
          <Box
             sx={{
                border: "1px solid",
@@ -39,7 +55,7 @@ const TestItem: FC<IQuiz> = ({ questions, title, createdAt, _id }: IQuiz) => {
             <Box>Count of questions in quiz: {questions.length}</Box>
             <Box>Created: {formattedDate}</Box>
          </Box>
-      </Link>
+      </Box>
    );
 };
 

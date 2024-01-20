@@ -14,10 +14,10 @@ export const userApi = createApi({
             method: "GET",
          }),
       }),
-      getQuizById: builder.query({
+      getQuizById: builder.mutation({
          query: (body) => ({
-            url: `/quiz`,
-            method: "GET",
+            url: `/quizItem`,
+            method: "POST",
             body: body,
          }),
       }),
@@ -97,5 +97,5 @@ export const {
    useLogoutMutation,
    useCreateQuizMutation,
    useGetQuizesQuery,
-   useGetQuizByIdQuery
+   useGetQuizByIdMutation
 } = userApi;

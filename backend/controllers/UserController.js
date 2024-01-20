@@ -121,10 +121,9 @@ const getQuizById = async (req, res) => {
             message: "Пользователь не авторизован",
          });
       }
-      const quiz = await QuizesModel.findById(req._id);
+      const quiz = await QuizesModel.findById(req?.body?._id);
 
       res.status(200).json(quiz);
-      console.log(req._id);
    } catch (error) {
       console.log(error);
    }

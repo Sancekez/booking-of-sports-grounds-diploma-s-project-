@@ -57,6 +57,6 @@ app.post("/auth", login);
 app.post("/logout", logout);
 app.get("/refresh", refresh);
 app.get("/quizes", getAllquizes);
-app.get("/quiz/:id", getQuizById)
+app.post("/quizItem", getQuizById)
 
 app.post("/quiz", createQuiz);
