@@ -104,7 +104,7 @@ function Header() {
                         textDecoration: "none",
                      }}
                   >
-                     Quiz-app
+                     Alisher ne loh
                   </Typography>
                </Link>
 
