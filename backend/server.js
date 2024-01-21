@@ -13,7 +13,7 @@ const {
    login,
    logout,
    refresh,
-   getAllquizes,
+   getAllFields,
    getQuizById,
 } = require("./controllers/UserController");
 const createField = require("./services/field-service").createField;
@@ -56,7 +56,7 @@ app.get("/activate/:link", activate);
 app.post("/auth", login);
 app.post("/logout", logout);
 app.get("/refresh", refresh);
-app.get("/fields", getAllquizes);
+app.get("/fields", getAllFields);
 app.post("/quizItem", getQuizById)
 
 //fields

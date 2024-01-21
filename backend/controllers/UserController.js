@@ -99,7 +99,7 @@ const refresh = async (req, res) => {
    }
 };
 
-const getAllquizes = async (req, res) => {
+const getAllFields = async (req, res) => {
    try {
       const { refreshToken } = req.cookies;
       const user = validateRefreshToken(refreshToken);
@@ -129,7 +129,7 @@ const getQuizById = async (req, res) => {
    }
 };
 
-module.exports.getAllquizes = getAllquizes;
+module.exports.getAllFields = getAllFields;
 module.exports.registration = registration;
 module.exports.activate = activate;
 module.exports.login = login;
