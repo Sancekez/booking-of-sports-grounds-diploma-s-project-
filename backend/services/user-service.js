@@ -19,10 +19,12 @@ const userRegister = async (req, res) => {
       const user = new UserModel({
          email: req.body.email,
          password: passwordHash,
-         name: req.body.name,
+         fullName: req.body.fullName,
          activationLink: activationLink,
-         surname: req.body.surname,
-         rule: req.body.rule,
+         phone: req.body.phone,
+         playFieldName: req.body.playFieldName,
+         typeOfSports: req.body.typeOfSports,
+         countFields: req.body.countFields,
       });
 
       await SendActivationMail(
