@@ -56,7 +56,7 @@ app.get("/activate/:link", activate);
 app.post("/auth", login);
 app.post("/logout", logout);
 app.get("/refresh", refresh);
-app.get("/quizes", getAllquizes);
+app.get("/fields", getAllquizes);
 app.post("/quizItem", getQuizById)
 
 //fields
