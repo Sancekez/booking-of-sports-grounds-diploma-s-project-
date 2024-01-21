@@ -16,7 +16,7 @@ const {
    getAllquizes,
    getQuizById,
 } = require("./controllers/UserController");
-const createQuiz = require("./services/quiz-service").createQuiz;
+const createField = require("./services/field-service").createField;
 
 const app = express();
 const db = mongoose.connection;
@@ -59,4 +59,5 @@ app.get("/refresh", refresh);
 app.get("/quizes", getAllquizes);
 app.post("/quizItem", getQuizById)
 
-app.post("/quiz", createQuiz);
+//fields
+app.post("/field", createField);

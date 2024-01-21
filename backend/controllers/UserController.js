@@ -9,7 +9,7 @@ const {
    tokenRemove,
    validateRefreshToken,
 } = require("../services/token-service");
-const { QuizesModel } = require("../Schemas/QuizesSchema");
+const { FieldModel } = require("../Schemas/FieldSchema");
 
 const registration = async (req, res, next) => {
    try {
@@ -104,7 +104,7 @@ const getAllquizes = async (req, res) => {
       const { refreshToken } = req.cookies;
       const user = validateRefreshToken(refreshToken);
       console.log(user);
-      const quizes = await QuizesModel.find({ user: user._id });
+      const quizes = await FieldModel.find({ user: user._id });
 
       res.status(200).json(quizes);
    } catch (error) {
@@ -121,7 +121,7 @@ const getQuizById = async (req, res) => {
             message: "Пользователь не авторизован",
          });
       }
-      const quiz = await QuizesModel.findById(req?.body?._id);
+      const quiz = await FieldModel.findById(req?.body?._id);
 
       res.status(200).json(quiz);
    } catch (error) {
