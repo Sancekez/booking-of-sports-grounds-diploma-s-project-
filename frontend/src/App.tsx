@@ -24,6 +24,7 @@ import { ThemeProvider } from "@mui/material";
 import { useThemeContext } from "./context/themeContextProvider";
 import LoadingSpiner from "./components/LoadingSpiner";
 import ReviewQuizPage from "./pages/ReviewQuizPage";
+import AddGroundPage from "./pages/AddGroundPage";
 
 function App() {
    const [mutationsCompleted, setMutationsCompleted] = useState(false);
@@ -94,6 +95,7 @@ function App() {
                      <Route path="/tests" element={<TestsPage />} />
                      <Route path="/logout" element={<LoadingSpiner />} />
                      <Route path="/quiz/:id" element={<ReviewQuizPage />} />
+                     <Route path="/addground" element={<AddGroundPage />} />
                   </Route>
 
                   {/* {free pages} */}

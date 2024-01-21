@@ -80,7 +80,7 @@ export function FormBlockLogin() {
                   variant="h5"
                   sx={{ textAlign: "center", mb: "40px", fontWeight: "700" }}
                >
-                  Log In
+                  Вход
                </Typography>
                <Controller
                   name="email"
@@ -94,7 +94,7 @@ export function FormBlockLogin() {
                         autoFocus={true}
                         sx={{ width: "100%", mb: "30px" }}
                         variant="standard"
-                        label={"Email"}
+                        label={"Эл. почта"}
                         onChange={(e) => field.onChange(e)}
                         value={field.value}
                         color="secondary"
@@ -121,7 +121,7 @@ export function FormBlockLogin() {
                         autoFocus={true}
                         sx={{ width: "100%", mb: "30px" }}
                         variant="standard"
-                        label={"Password"}
+                        label={"Пароль"}
                         onChange={(e) => field.onChange(e)}
                         value={field.value}
                         color="secondary"
@@ -132,7 +132,7 @@ export function FormBlockLogin() {
                />
 
                <Typography>
-                  Don't have an accaunt? Go to the{" "}
+                  Нет аккаунта? {" "}
                   <Link to={"/register"}>
                      <Typography
                         sx={{
@@ -142,7 +142,7 @@ export function FormBlockLogin() {
                            textDecoration: "underline",
                         }}
                      >
-                        Registration
+                        Регистрация
                      </Typography>
                   </Link>
                </Typography>
@@ -158,7 +158,7 @@ export function FormBlockLogin() {
                   }}
                   disableElevation
                >
-                  Log In
+                  Войти
                </Button>
             </Paper>
          </form>
