@@ -1,7 +1,6 @@
 export interface IRegisterInputs {
-   name: string;
-   surname: string;
+   fullname: string;
+   phone: string;
    email: string;
    password: string;
-   rule: string;
 }

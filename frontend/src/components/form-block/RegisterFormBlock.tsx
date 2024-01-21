@@ -73,10 +73,10 @@ export function FormBlockRegister() {
                   variant="h5"
                   sx={{ textAlign: "center", mb: "40px", fontWeight: "700" }}
                >
-                  Registration
+                  Регистрация
                </Typography>
                <Controller
-                  name="name"
+                  name="fullname"
                   control={control}
                   rules={loginValidation}
                   defaultValue=""
@@ -87,7 +87,7 @@ export function FormBlockRegister() {
                         autoFocus={true}
                         sx={{ width: "100%", mb: "30px" }}
                         variant="standard"
-                        label={"Name"}
+                        label={"Имя пользователя"}
                         onChange={(e) => field.onChange(e)}
                         value={field.value}
                         color="secondary"
@@ -97,7 +97,7 @@ export function FormBlockRegister() {
                   )}
                />
                <Controller
-                  name="surname"
+                  name="phone"
                   control={control}
                   rules={loginValidation}
                   defaultValue=""
@@ -107,7 +107,7 @@ export function FormBlockRegister() {
                         type="text"
                         sx={{ width: "100%", mb: "30px" }}
                         variant="standard"
-                        label={"Surname"}
+                        label={"Телефон"}
                         onChange={(e) => field.onChange(e)}
                         value={field.value}
                         color="secondary"
@@ -128,7 +128,7 @@ export function FormBlockRegister() {
                         type="email"
                         sx={{ width: "100%", mb: "30px" }}
                         variant="standard"
-                        label={"Email"}
+                        label={"Эл. почта"}
                         onChange={(e) => field.onChange(e)}
                         value={field.value}
                         color="secondary"
@@ -148,7 +148,7 @@ export function FormBlockRegister() {
                         type="password"
                         sx={{ width: "100%", mb: "30px" }}
                         variant="standard"
-                        label={"Password"}
+                        label={"Пароль"}
                         onChange={(e) => field.onChange(e)}
                         value={field.value}
                         color="secondary"
@@ -157,7 +157,7 @@ export function FormBlockRegister() {
                      />
                   )}
                />
-               <Controller
+               {/* <Controller
                   name="rule"
                   control={control}
                   rules={loginValidation}
@@ -174,7 +174,7 @@ export function FormBlockRegister() {
                         }}
                      />
                   )}
-               />
+               /> */}
 
                <Typography
                   sx={{
@@ -182,7 +182,7 @@ export function FormBlockRegister() {
                      margin: "10px 0 40px",
                   }}
                >
-                  Already registered? Go to the{" "}
+                  Уже зарегестрированы?{" "}
                   <Link to={"/login"}>
                      <Typography
                         sx={{
@@ -191,7 +191,7 @@ export function FormBlockRegister() {
                            display: "inline-block",
                         }}
                      >
-                        Log In
+                        Войти
                      </Typography>
                   </Link>
                   .
@@ -208,7 +208,7 @@ export function FormBlockRegister() {
                   }}
                   disableElevation
                >
-                  Register
+                  Зарегестрироваться
                </Button>
             </Paper>
          </form>

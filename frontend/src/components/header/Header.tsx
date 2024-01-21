@@ -20,7 +20,6 @@ import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 
 import { Link } from "react-router-dom";
-
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../redux/store";
 import { setTheme } from "../../redux/slices/themeSlices";
@@ -35,6 +34,7 @@ const pages = [
    { title: "Home", link: "/" },
    { title: "Create quiz", link: "/create-test" },
    { title: "All quizes", link: "/tests" },
+   { title: "Добавить площадку", link: "/addground" },
 ];
 
 // const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -104,7 +104,7 @@ function Header() {
                         textDecoration: "none",
                      }}
                   >
-                     Alisher ne loh
+                     rent-gym
                   </Typography>
                </Link>
 
