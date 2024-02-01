@@ -15,11 +15,11 @@ export const getDesignTokens = (mode: PaletteMode) => ({
          ? {
               // palette values for light mode
               primary: {
-                 main: blue[500],
+                 main: "#CEE452",
               },
               divider: "#000",
               secondary: {
-                 main: blue[500],
+                 main: "#CEE452",
               },
               darkTheme: {
                  main: blue[500],

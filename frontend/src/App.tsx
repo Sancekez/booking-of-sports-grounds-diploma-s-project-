@@ -2,7 +2,7 @@ import Header from "./components/header/Header";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import MainPage from "./pages/MainPage";
-import TestsPage from "./pages/TestsPage";
+import AllFieldsPage from "./pages/AllFieldsPage";
 import CreateTestPage from "./pages/CreateTestPage";
 import { Box } from "@mui/material";
 
@@ -91,8 +91,8 @@ function App() {
                   {/* {private pages} */}
                   <Route element={<PriveteRoutes />}>
                      <Route path="/" element={<MainPage />} index />
-                     <Route path="/create-test" element={<CreateTestPage />} />
-                     <Route path="/tests" element={<TestsPage />} />
+                     <Route path="/about-field" element={<CreateTestPage />} />
+                     <Route path="/all-fields" element={<AllFieldsPage />} />
                      <Route path="/logout" element={<LoadingSpiner />} />
                      <Route path="/quiz/:id" element={<ReviewQuizPage />} />
                      <Route path="/addground" element={<AddGroundPage />} />

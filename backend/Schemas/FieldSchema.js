@@ -5,7 +5,23 @@ const Schema = mongoose.Schema;
 const FieldSchema = new Schema({
    name: {
       type: String,
-      required: true,
+      required: false,
+   },
+   price: {
+      type: String,
+      required: false,
+   },
+   selectedCheckboxes: {
+      type: Array,
+      required: false,
+   },
+   selectedSports: {
+      type: Array,
+      required: false,
+   },
+   selectedWorkingDays: {
+      type: Array,
+      required: false,
    },
    area: {
       height: {
@@ -23,22 +39,22 @@ const FieldSchema = new Schema({
    },
    typeField: {
       type: String,
-      required: true,
+      required: false,
    },
    typeField: {
       type: String,
-      required: true,
+      required: false,
       default: 'indoor field',
    },
    coveringField: {
       type: String,
-      required: true,
+      required: false,
    },
    typesSports: [
       {
          name: {
             type: String,
-            required: true,
+            required: false,
          },
          isIndoor: {
             type: Boolean,
@@ -51,7 +67,7 @@ const FieldSchema = new Schema({
       {
          name: {
             type: String,
-            required: true,
+            required: false,
          },
          value: {
             type: String,
@@ -71,15 +87,15 @@ const FieldSchema = new Schema({
             "Saturday",
             "Sunday",
          ],
-         required: true,
+         required: false,
       },
       start: {
          type: String,
-         required: true,
+         required: false,
       },
       end: {
          type: String,
-         required: true,
+         required: false,
       },
       lunch: {
          type: String,
@@ -92,7 +108,7 @@ const FieldSchema = new Schema({
    },
    address: {
       type: String,
-      required: true,
+      required: false,
    },
    rating: {
       type: Number,
@@ -109,5 +125,5 @@ const FieldSchema = new Schema({
    },
 });
 
-const FieldModel = mongoose.model("Quizes", FieldSchema);
+const FieldModel = mongoose.model("Field", FieldSchema);
 module.exports.FieldModel = FieldModel;

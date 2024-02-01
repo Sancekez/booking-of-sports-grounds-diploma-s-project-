@@ -31,9 +31,9 @@ import { useThemeContext } from "../../context/themeContextProvider";
 import { IUserData } from "../../interfaces/IUserData";
 
 const pages = [
-   { title: "Home", link: "/" },
-   { title: "Create quiz", link: "/create-test" },
-   { title: "All quizes", link: "/tests" },
+   { title: "Главная", link: "/" },
+   { title: "Ваши площадки", link: "/about-field" },
+   { title: "Все площадки", link: "/all-fields" },
    { title: "Добавить площадку", link: "/addground" },
 ];
 
@@ -155,7 +155,7 @@ function Header() {
                      {userData ? (
                         <Link to={"/logout"} onClick={handleLogout}>
                            <MenuItem>
-                              <Typography textAlign="center">Logout</Typography>
+                              <Typography textAlign="center">Выйти</Typography>
                            </MenuItem>
                         </Link>
                      ) : (
@@ -163,14 +163,14 @@ function Header() {
                            <Link to={"/register"} onClick={handleCloseNavMenu}>
                               <MenuItem>
                                  <Typography textAlign="center">
-                                    Registration
+                                    Регистрация
                                  </Typography>
                               </MenuItem>
                            </Link>
                            <Link to={"/login"} onClick={handleCloseNavMenu}>
                               <MenuItem>
                                  <Typography textAlign="center">
-                                    Login
+                                    Войти
                                  </Typography>
                               </MenuItem>
                            </Link>
@@ -216,7 +216,7 @@ function Header() {
                   {userData ? (
                      <Link to={"/logout"} onClick={handleLogout}>
                         <MenuItem>
-                           <Typography textAlign="center">Logout</Typography>
+                           <Typography textAlign="center">Выйти</Typography>
                         </MenuItem>
                      </Link>
                   ) : (
@@ -224,13 +224,13 @@ function Header() {
                         <Link to={"/register"} onClick={handleCloseNavMenu}>
                            <MenuItem>
                               <Typography textAlign="center">
-                                 Registration
+                                 Регистрация
                               </Typography>
                            </MenuItem>
                         </Link>
                         <Link to={"/login"} onClick={handleCloseNavMenu}>
                            <MenuItem>
-                              <Typography textAlign="center">Login</Typography>
+                              <Typography textAlign="center">Войти</Typography>
                            </MenuItem>
                         </Link>
                      </>

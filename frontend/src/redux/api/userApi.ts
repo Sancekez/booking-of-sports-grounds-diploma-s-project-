@@ -8,6 +8,12 @@ export const userApi = createApi({
       credentials: "include",
    }),
    endpoints: (builder) => ({
+      getFields: builder.query({
+         query: () => ({
+            url: `/fields`,
+            method: "GET",
+         }),
+      }),
       getQuizes: builder.query({
          query: () => ({
             url: `/quizes`,
@@ -24,6 +30,13 @@ export const userApi = createApi({
       createQuiz: builder.mutation({
          query: (body) => ({
             url: `/quiz`,
+            method: "POST",
+            body: body,
+         }),
+      }),
+      createField: builder.mutation({
+         query: (body) => ({
+            url: `/field`,
             method: "POST",
             body: body,
          }),
@@ -97,5 +110,7 @@ export const {
    useLogoutMutation,
    useCreateQuizMutation,
    useGetQuizesQuery,
-   useGetQuizByIdMutation
+   useGetQuizByIdMutation,
+   useCreateFieldMutation,
+   useGetFieldsQuery
 } = userApi;

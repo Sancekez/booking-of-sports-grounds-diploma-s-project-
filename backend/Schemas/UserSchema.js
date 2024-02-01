@@ -39,7 +39,7 @@ const UserSchema = new Schema({
       required: true,
       unique: true,
    },
-   fullName: {
+   fullname: {
       type: String,
       required: true,
    },
@@ -53,11 +53,11 @@ const UserSchema = new Schema({
    },
    playFieldName: {
       type: String,
-      required: true,
+      required: false,
    },
    typeOfSports: {
       type: Array,
-      required: true,
+      required: false,
    },
    countFields: {
       type: String,
