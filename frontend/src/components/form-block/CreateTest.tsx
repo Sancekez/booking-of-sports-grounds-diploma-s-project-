@@ -204,9 +204,9 @@ export const CreateTest: React.FC = () => {
    const [currentSlide, setCurrentSlide] = useState(0);
 
    const images = [
-      "https://via.placeholder.com/1200x800/FF5733",
-      "https://via.placeholder.com/1200x800/33FF57",
-      "https://via.placeholder.com/1200x800/5733FF"
+      "https://cdn.britannica.com/51/190751-050-147B93F7/soccer-ball-goal.jpg",
+      "https://cdn.britannica.com/51/190751-050-147B93F7/soccer-ball-goal.jpg",
+      "https://cdn.britannica.com/51/190751-050-147B93F7/soccer-ball-goal.jpg"
     ];
 
     const nextSlide = () => {
@@ -289,13 +289,13 @@ export const CreateTest: React.FC = () => {
             <Typography mb={2} mt={2} fontSize={15}>{item.intro}</Typography> 
 
             <Typography variant="h5" mb={2}>Время работы: </Typography>
-                  <Typography>Понидельник: {item.monday}</Typography>
+                  <Typography>Понедельник: {item.monday}</Typography>
                   <Typography>Вторник:     {item.tuesday}</Typography>
                   <Typography>Среда:       {item.wednesday}</Typography>
                   <Typography>Четверг:     {item.thursday}</Typography>
                   <Typography>Пятница:     {item.friday}</Typography>
                   <Typography>Суббота:     {item.saturday}</Typography>
-                  <Typography>Воскресенья: {item.sunday}</Typography>
+                  <Typography>Воскресенье: {item.sunday}</Typography>
             </Box>
       
           </Paper>
