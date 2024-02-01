@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@mui/lab": "^5.0.0-alpha.162",
+    "@mui/material": "^5.15.6",
+    "@mui/x-date-pickers": "^6.19.2",
+    "dayjs": "^1.11.10"
+  }
+}
