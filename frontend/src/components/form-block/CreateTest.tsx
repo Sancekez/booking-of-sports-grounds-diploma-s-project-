@@ -258,36 +258,47 @@ export const CreateTest: React.FC = () => {
             </Box>
          
             {/* Данные о площадке */}
-            <Box 
-            flex={1} maxWidth={300} maxHeight={400} 
-            bgcolor={'gray'}
-            borderRadius={2}
-            padding={2}
-            >
-              <Typography variant="h6">{item.name}</Typography>
-              <Typography>Адрес: {item.address}</Typography>
-              <Typography>Вид спорта: {item.sport}</Typography>
-              <Typography>Покрытие: {item.coverage}</Typography>
-              <Typography>Площадь: {item.area}</Typography>
-              <Typography>Рейтинг: {item.rating}</Typography>
-              <Typography>Душевые: {item.shower}</Typography>
-              <Typography>Освещение: {item.light}</Typography>
+
+            <Paper 
+            sx={{
+            maxWidth:"250px",
+            maxHeight:"250px"
+            }}>
+               <Box 
+               flex={1}
+               padding={2}
+               >
+                     <Typography variant="h6">{item.name}</Typography>
+                     <Typography>Адрес: {item.address}</Typography>
+                     <Typography>Вид спорта: {item.sport}</Typography>
+                     <Typography>Покрытие: {item.coverage}</Typography>
+                     <Typography>Площадь: {item.area}</Typography>
+                     <Typography>Рейтинг: {item.rating}</Typography>
+                     <Typography>Душевые: {item.shower}</Typography>
+                     <Typography>Освещение: {item.light}</Typography>
+               </Box>
+            </Paper>
+
+          </Box>
+
+          <Paper sx={{
+               maxWidth: "80%"
+          }}>
+            <Box flex={1} padding={2} margin={2} >
+            <Typography variant="h5" > Информация о площадке: </Typography> 
+            <Typography mb={2} mt={2} fontSize={15}>{item.intro}</Typography> 
+
+            <Typography variant="h5" mb={2}>Время работы: </Typography>
+                  <Typography>Понидельник: {item.monday}</Typography>
+                  <Typography>Вторник:     {item.tuesday}</Typography>
+                  <Typography>Среда:       {item.wednesday}</Typography>
+                  <Typography>Четверг:     {item.thursday}</Typography>
+                  <Typography>Пятница:     {item.friday}</Typography>
+                  <Typography>Суббота:     {item.saturday}</Typography>
+                  <Typography>Воскресенья: {item.sunday}</Typography>
             </Box>
-          </Box>
-
-          <Box flex={1} maxWidth={870} bgcolor={'gray'} borderRadius={2} padding={2} margin={1} >
-          <Typography variant="h5" > Информация о площадке: </Typography> 
-          <Typography mb={2} mt={2} fontSize={15}>{item.intro}</Typography> 
-
-          <Typography variant="h5" mb={2}>Время работы: </Typography>
-              <Typography>Понидельник: {item.monday}</Typography>
-              <Typography>Вторник:     {item.tuesday}</Typography>
-              <Typography>Среда:       {item.wednesday}</Typography>
-              <Typography>Четверг:     {item.thursday}</Typography>
-              <Typography>Пятница:     {item.friday}</Typography>
-              <Typography>Суббота:     {item.saturday}</Typography>
-              <Typography>Воскресенья: {item.sunday}</Typography>
-          </Box>
+      
+          </Paper>
 
 
         </Grid>
