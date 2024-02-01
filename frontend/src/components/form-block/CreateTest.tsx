@@ -274,8 +274,6 @@ export const CreateTest: React.FC = () => {
                      <Typography>Покрытие: {item.coverage}</Typography>
                      <Typography>Площадь: {item.area}</Typography>
                      <Typography>Рейтинг: {item.rating}</Typography>
-                     <Typography>Душевые: {item.shower}</Typography>
-                     <Typography>Освещение: {item.light}</Typography>
                </Box>
             </Paper>
 
