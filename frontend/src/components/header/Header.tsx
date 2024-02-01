@@ -15,7 +15,7 @@ import {
    AppBar,
 } from "@mui/material";
 
-import AdbIcon from "@mui/icons-material/Description";
+import SportsVolleyballIcon from '@mui/icons-material/SportsVolleyball';
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 
@@ -89,7 +89,7 @@ function Header() {
       <AppBar position="static">
          <Container maxWidth="xl">
             <Toolbar disableGutters>
-               <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+               <SportsVolleyballIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
                <Link to={"/"}>
                   <Typography
                      variant="h6"
@@ -178,7 +178,7 @@ function Header() {
                      )}
                   </Menu>
                </Box>
-               <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+               <SportsVolleyballIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
                <Typography
                   variant="h5"
                   noWrap
