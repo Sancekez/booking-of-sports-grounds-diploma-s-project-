@@ -1,16 +1,15 @@
 import { Container, Typography } from "@mui/material";
 import { CreateTest } from "../components/form-block/CreateTest";
-
+import { PlayGround } from "../components/form-block/PlayGround";
+ 
 function CreateTestPage() {
    return (
       <Container sx={{ pt: "50px" }}>
          <Typography align="center" variant="h4">
-            You can create test here!
+            Main info about playground!
          </Typography>
-         <Typography align="center" variant="h6" sx={{marginBottom: '40px'}}>
-            For creating test please, complete form below.
-         </Typography>
-
+        
+         
          <CreateTest />
       </Container>
    );

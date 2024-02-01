@@ -13,8 +13,12 @@ import {
    Typography,
    IconButton,
    Slide,
+   Grid,
 } from "@mui/material";
 import { Delete, Edit, Close, AddCircle } from "@mui/icons-material";
+
+import { ChevronLeft as ChevronLeftIcon, ChevronRight as ChevronRightIcon } from "@mui/icons-material";
+
 
 import {
    DragDropContext,
@@ -37,6 +41,21 @@ interface Question {
    question: string;
    answers: Answer[];
 }
+
+interface Playground {
+   id: number;
+   name: string;
+   price: string;
+   address: string;
+   sport: string;
+   coverage: string;
+   city: string;
+   rating: string;
+   area: string;
+   shower: string;
+   light: string;
+ }
+ 
 
 export const CreateTest: React.FC = () => {
    const [questions, setQuestions] = useState<Question[]>([]);
@@ -114,18 +133,6 @@ export const CreateTest: React.FC = () => {
       setQuestions(reorderedQuestions);
    };
 
-   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
-
-      const response = await createQuiz({questions, quizTitle});
-      handleOpen(response.data);
-
-      setQuizTitle('')
-      setQuestions([]);
-      setCurrentQuestion("");
-      setCurrentAnswers([]);
-      setCorrectAnswerIndex(-1);
-   };
 
    const [tempCorrectAnswerIndex, setTempCorrectAnswerIndex] =
       useState<number>(-1);
@@ -139,6 +146,8 @@ export const CreateTest: React.FC = () => {
          editedQuestion.answers.findIndex((answer) => answer.correct)
       );
    };
+
+      
 
    const handleSaveEditedQuestion = () => {
       if (
@@ -167,260 +176,126 @@ export const CreateTest: React.FC = () => {
       }
    };
 
-   const handleCorrectAnswerChange = (index: number, questionIndex: number) => {
-      if (questionIndex === editingQuestionIndex) {
-         setCorrectAnswerIndex(index);
-      }
-      const newAnswers = currentAnswers.map((answer, i) => ({
-         ...answer,
-         correct: i === index,
-      }));
-      setCurrentAnswers(newAnswers);
-   };
+   const playground = [
+      {
+        id: 1,
+        name: "Площадка 1",
+        price: "8000 тенге",
+        address: "Алтынасарина 67",
+        sport: "Футбол",
+        coverage: "Газон",
+        city: "Алматы",
+        rating: " 4.5",
+        area: " 100 x 68",
+        shower: " Есть",
+        light: " Есть ",
+        monday: "круглосуточно",
+        tuesday: "круглосуточно",
+        wednesday: "круглосуточно",
+        thursday: "круглосуточно",
+        friday: "круглосуточно",
+        saturday: "круглосуточно",
+        sunday: "круглосуточно",
+        intro: "Добро пожаловать в нашу сеть спортивных залов! Мы стремимся создать для вас максимально комфортные условия для занятий спортом, независимо от ваших предпочтений и уровня подготовки. Наша сеть предлагает широкий спектр залов для проведения тренировок по различным видам спорта, включая баскетбол, волейбол, теннис, футбол и многое другое. Мы гордимся высоким качеством наших спортивных площадок, обеспечивая безопасное и эффективное занятие спортом."
+      },
 
-   const handleDeleteAnswer = (index: number) => {
-      const newAnswers = currentAnswers.filter((_, i) => i !== index);
-      setCurrentAnswers(newAnswers);
-   };
+    ];
 
-   const hide = (index: number) => {
-      return currentAnswers.filter((_, i) => i === index).length > 0;
-   };
+   const [currentSlide, setCurrentSlide] = useState(0);
+
+   const images = [
+      "https://via.placeholder.com/1200x800/FF5733",
+      "https://via.placeholder.com/1200x800/33FF57",
+      "https://via.placeholder.com/1200x800/5733FF"
+    ];
+
+    const nextSlide = () => {
+      setCurrentSlide((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+    };
+
+    const prevSlide = () => {
+      setCurrentSlide((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+    };
+  
+
 
    return (
       <>
-         <Snackbar
-            handleClose={handleClose}
-            message={message}
-            variant="success"
-         />
-         <Container sx={{ m: "40px 0 60px" }}>
-            <Paper sx={{ p: "40px 30px", borderRadius: "20px" }} elevation={8}>
-               <form action="" onSubmit={onSubmit}>
-                  <Typography
-                     variant="h4"
-                     sx={{ mb: "30px" }}
-                     textAlign={"center"}
-                  >
-                     Quiz Creator
-                  </Typography>
-                  <TextField
-                     type="text"
-                     label="Enter quiz title"
-                     fullWidth
-                     variant="outlined"
-                     value={quizTitle}
-                     onChange={handleQuizTitleChange}
-                     color="secondary"
-                     sx={{ mb: 2 }}
-                  />
-                  <TextField
-                     type="text"
-                     label="Enter question"
-                     fullWidth
-                     variant="outlined"
-                     value={currentQuestion}
-                     onChange={handleQuestionChange}
-                     color="secondary"
-                     sx={{ mb: 2 }}
-                  />
-                  <RadioGroup>
-                     {currentAnswers.map((answer, index) => (
-                        <CSSTransition
-                           key={index}
-                           in={hide(index)}
-                           timeout={300}
-                           classNames="slide"
-                           unmountOnExit
-                           mountOnEnter
-                        >
-                           <Slide direction="right" in={true}>
-                              <FormControlLabel
-                                 sx={{ mb: "20px" }}
-                                 key={index}
-                                 value={answer.answer}
-                                 control={<Radio />}
-                                 checked={answer.correct}
-                                 onChange={() =>
-                                    handleCorrectAnswerChange(index, -1)
-                                 }
-                                 label={
-                                    <Box display="flex" alignItems="center">
-                                       <TextField
-                                          value={answer.answer}
-                                          onChange={(
-                                             event: ChangeEvent<HTMLInputElement>
-                                          ) => handleAnswerChange(index, event)}
-                                          placeholder={`Enter Answer ${
-                                             index + 1
-                                          }`}
-                                          required
-                                       />
-                                       <IconButton
-                                          onClick={() =>
-                                             handleDeleteAnswer(index)
-                                          }
-                                       >
-                                          <Close />
-                                       </IconButton>
-                                    </Box>
-                                 }
-                              />
-                           </Slide>
-                        </CSSTransition>
-                     ))}
-                  </RadioGroup>
+<Container>
 
-                  <Box
-                     sx={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "space-between",
-                     }}
-                  >
-                     <Button
-                        variant="outlined"
-                        color="secondary"
-                        onClick={handleAddAnswer}
-                        endIcon={<AddCircle />}
-                     >
-                        Add answer
-                     </Button>
+  <Grid container spacing={3} >
+      
+      {playground.map((item) => (
+        <Grid item xs={14} md={13} key={item.id}>
+           
+          <Box display="flex"  flexDirection={{ xs: "column", md: "row" }}>
+            {/* Слайдер */}
+            <Box
+              flex={2}
+              mr={{ xs: 0, md: 2 }}
+              mb={{ xs: 2, md: 0 }}
+              style={{ width: 1200, height: 600, position: "relative" }}
+            >
+              <div style={{ width: "100%", height: "100%", overflow: "hidden" }}>
+                {/* Отображение текущего изображения */}
+                <img
+                  src={images[currentSlide]}
+                  alt={`Slide ${currentSlide + 1}`}
+                  style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "5px" }}
+                />
+              </div>         
+              {/* Кнопки для переключения слайдов */}
+              <Box position="absolute" top="50%" left={0} right={0} textAlign="center">
+                <IconButton onClick={prevSlide}
+                style={{ position: "absolute", top: "50%", left: "0", transform: "translateY(-50%)", zIndex: 1 }}>
+                  <ChevronLeftIcon />
+                </IconButton>
+                <IconButton onClick={nextSlide}
+                style={{ position: "absolute", top: "50%", right: "0", transform: "translateY(-50%)", zIndex: 1 }}>
+                  <ChevronRightIcon />
+                </IconButton>
+              </Box>
+            </Box>
+         
+            {/* Данные о площадке */}
+            <Box 
+            flex={1} maxWidth={300} maxHeight={400} 
+            bgcolor={'gray'}
+            borderRadius={2}
+            padding={2}
+            >
+              <Typography variant="h6">{item.name}</Typography>
+              <Typography>Адрес: {item.address}</Typography>
+              <Typography>Вид спорта: {item.sport}</Typography>
+              <Typography>Покрытие: {item.coverage}</Typography>
+              <Typography>Площадь: {item.area}</Typography>
+              <Typography>Рейтинг: {item.rating}</Typography>
+              <Typography>Душевые: {item.shower}</Typography>
+              <Typography>Освещение: {item.light}</Typography>
+            </Box>
+          </Box>
 
-                     {editingQuestionIndex !== -1 &&
-                        tempCorrectAnswerIndex !== -1 && (
-                           <Button
-                              variant="contained"
-                              color="warning"
-                              onClick={handleSaveEditedQuestion}
-                           >
-                              Save changes
-                           </Button>
-                        )}
+          <Box flex={1} maxWidth={870} bgcolor={'gray'} borderRadius={2} padding={2} margin={1} >
+          <Typography variant="h5" > Информация о площадке: </Typography> 
+          <Typography mb={2} mt={2} fontSize={15}>{item.intro}</Typography> 
 
-                     <Button variant="contained" onClick={handleAddQuestion}>
-                        Add Question
-                     </Button>
+          <Typography variant="h5" mb={2}>Время работы: </Typography>
+              <Typography>Понидельник: {item.monday}</Typography>
+              <Typography>Вторник:     {item.tuesday}</Typography>
+              <Typography>Среда:       {item.wednesday}</Typography>
+              <Typography>Четверг:     {item.thursday}</Typography>
+              <Typography>Пятница:     {item.friday}</Typography>
+              <Typography>Суббота:     {item.saturday}</Typography>
+              <Typography>Воскресенья: {item.sunday}</Typography>
+          </Box>
 
-                     <Button variant="contained" color="success" type="submit">
-                        Create quiz
-                     </Button>
-                  </Box>
-                  <List>
-                     <DragDropContext onDragEnd={handleDragEnd}>
-                        <Droppable droppableId="droppable" direction="vertical">
-                           {(provided) => (
-                              <div
-                                 {...provided.droppableProps}
-                                 ref={provided.innerRef}
-                              >
-                                 {questions.map((question, index) => (
-                                    <Draggable
-                                       key={index}
-                                       draggableId={index.toString()}
-                                       index={index}
-                                    >
-                                       {(provided) => (
-                                          <ListItem
-                                             {...provided.draggableProps}
-                                             {...provided.dragHandleProps}
-                                             ref={provided.innerRef}
-                                          >
-                                             <Paper
-                                                sx={{
-                                                   p: 2,
-                                                   my: 2,
-                                                   borderRadius: "10px",
-                                                   borderColor: "primary.main",
-                                                   width: "100%",
-                                                   textAlign: "center",
-                                                   position: "relative",
-                                                }}
-                                                variant="outlined"
-                                             >
-                                                <Typography variant="h6">
-                                                   Question {index + 1}
-                                                </Typography>
-                                                <Box
-                                                   sx={{
-                                                      position: "absolute",
-                                                      right: "10px",
-                                                      top: "10px",
-                                                   }}
-                                                >
-                                                   <IconButton
-                                                      onClick={() =>
-                                                         handleEditQuestion(
-                                                            index
-                                                         )
-                                                      }
-                                                   >
-                                                      <Edit />
-                                                   </IconButton>
-                                                   <IconButton
-                                                      onClick={() =>
-                                                         handleDeleteQuestion(
-                                                            index
-                                                         )
-                                                      }
-                                                   >
-                                                      <Delete />
-                                                   </IconButton>
-                                                </Box>
 
-                                                <Typography
-                                                   variant="body1"
-                                                   fontWeight={700}
-                                                   textAlign={"start"}
-                                                >
-                                                   {question.question}
-                                                </Typography>
-                                                <RadioGroup sx={{ mt: "30px" }}>
-                                                   <Typography
-                                                      variant="body1"
-                                                      fontWeight={400}
-                                                      textAlign={"start"}
-                                                   >
-                                                      Variants of answer:
-                                                   </Typography>
-                                                   {question.answers.map(
-                                                      (answer, answerIndex) => (
-                                                         <FormControlLabel
-                                                            key={answerIndex}
-                                                            value={
-                                                               answer.answer
-                                                            }
-                                                            control={<Radio />}
-                                                            checked={
-                                                               answer.correct
-                                                            }
-                                                            label={
-                                                               answer.answer
-                                                            }
-                                                            onChange={() =>
-                                                               handleCorrectAnswerChange(
-                                                                  answerIndex,
-                                                                  index
-                                                               )
-                                                            }
-                                                         />
-                                                      )
-                                                   )}
-                                                </RadioGroup>
-                                             </Paper>
-                                          </ListItem>
-                                       )}
-                                    </Draggable>
-                                 ))}
-                                 {provided.placeholder}
-                              </div>
-                           )}
-                        </Droppable>
-                     </DragDropContext>
-                  </List>
-               </form>
-            </Paper>
-         </Container>
+        </Grid>
+      ))}
+    </Grid>
+</Container>
+
+
       </>
    );
 };
