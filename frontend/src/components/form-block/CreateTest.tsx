@@ -289,13 +289,13 @@ export const CreateTest: React.FC = () => {
             <Typography mb={2} mt={2} fontSize={15}>{item.intro}</Typography> 
 
             <Typography variant="h5" mb={2}>Время работы: </Typography>
-                  <Typography>Понидельник: {item.monday}</Typography>
+                  <Typography>Понедельник: {item.monday}</Typography>
                   <Typography>Вторник:     {item.tuesday}</Typography>
                   <Typography>Среда:       {item.wednesday}</Typography>
                   <Typography>Четверг:     {item.thursday}</Typography>
                   <Typography>Пятница:     {item.friday}</Typography>
                   <Typography>Суббота:     {item.saturday}</Typography>
-                  <Typography>Воскресенья: {item.sunday}</Typography>
+                  <Typography>Воскресенье: {item.sunday}</Typography>
             </Box>
       
           </Paper>

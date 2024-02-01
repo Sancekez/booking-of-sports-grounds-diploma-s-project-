@@ -182,7 +182,7 @@ export function FormBlockRegister() {
                      margin: "10px 0 40px",
                   }}
                >
-                  Уже зарегестрированы?{" "}
+                  Уже зарегистрированы?{" "}
                   <Link to={"/login"}>
                      <Typography
                         sx={{
@@ -208,7 +208,7 @@ export function FormBlockRegister() {
                   }}
                   disableElevation
                >
-                  Зарегестрироваться
+                  Зарегистрироваться
                </Button>
             </Paper>
          </form>

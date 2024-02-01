@@ -104,7 +104,8 @@ const getAllFields = async (req, res) => {
       const { refreshToken } = req.cookies;
       const user = validateRefreshToken(refreshToken);
       console.log(user);
-      const fields = await FieldModel.find({ user: user._id });
+      // const fields = await FieldModel.find({ user: user._id });
+      const fields = await FieldModel.find();
 
       res.status(200).json(fields);
    } catch (error) {

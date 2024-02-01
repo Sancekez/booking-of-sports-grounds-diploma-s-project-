@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 
 // import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 // import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -16,7 +16,6 @@ import {
    TextField,
    Button,
    MenuItem,
-   Select,
    FormControl,
    Divider,
    InputLabel,
@@ -115,7 +114,7 @@ function AllFieldsPage() {
 
    return (
       <Container>
-         <Grid container spacing={3}>
+         <Grid container spacing={3} mt={3} mb={3}>
             <Grid item xs={12} md={8}>
                <Typography variant="h5" gutterBottom>
                   Список Площадок
